@@ -1,6 +1,6 @@
 # docker container for gitbucket
 
-This docker container of gitbucket is under testing!!!
+This docker container of [gitbucket](https://github.com/gitbucket/gitbucket.git) is under testing!!!
 
 ## usage
 Please use the configuration file `gitbucket.conf` for your personal changes.
