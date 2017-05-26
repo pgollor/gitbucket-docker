@@ -7,4 +7,5 @@ services:
       volumes:
         - ./home:/srv/gitbucket/home
       ports:
-        - "${GITBUCKET_BIND:-127.0.0.1}:${GITBUCKET_PORT:-8080}:8080"
+        - "${GITBUCKET_BIND:-127.0.0.1}:${GITBUCKET_WEB_PORT:-8080}:8080"
+        - "${GITBUCKET_BIND:-127.0.0.1}:${GITBUCKET_SSH_PORT:-29418}:29418"
