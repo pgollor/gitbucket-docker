@@ -5,7 +5,8 @@ services:
       image: pgollor/gitbucket
       restart: always
       volumes:
-        - ./home:/srv/gitbucket/home
+        - ./repositories:/srv/gitbucket/repositories
+        - ./data.mv.db:/srv/gitbucket/data.mv.db
       ports:
         - "${GITBUCKET_BIND:-127.0.0.1}:${GITBUCKET_WEB_PORT:-8080}:8080"
         - "${GITBUCKET_BIND:-127.0.0.1}:${GITBUCKET_SSH_PORT:-29418}:29418"
