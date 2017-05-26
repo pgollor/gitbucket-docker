@@ -1,6 +1,6 @@
 # docker container for gitbucket
 
-<span style="color:red">This docker container of gitbucket is under testing!!!</span>
+This docker container of gitbucket is under testing!!!
 
 ## usage
 Please use the configuration file `gitbucket.conf` for your personal changes.
