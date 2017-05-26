@@ -1,0 +1,10 @@
+version: '2.1'
+
+services:
+    main-gitbucket:
+      image: pgollor/gitbucket
+      restart: always
+      volumes:
+        - ./home:/srv/gitbucket/home
+      ports:
+        - "${GITBUCKET_BIND:-127.0.0.1}:${GITBUCKET_PORT:-8080}:8080"
