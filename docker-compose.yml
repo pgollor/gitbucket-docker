@@ -11,7 +11,6 @@ services:
         - GITBUCKET_DATABASE_PASSWORD=${GITBUCKET_DATABASE_PASSWORD}
       volumes:
         - ./data/repositories:/srv/gitbucket/repositories
-        - ./data/data.mv.db:/srv/gitbucket/data.mv.db
         - ./data/gitbucket.conf:/srv/gitbucket/gitbucket.conf
       ports:
         - "${GITBUCKET_BIND:-127.0.0.1}:${GITBUCKET_WEB_PORT:-8080}:8080"
