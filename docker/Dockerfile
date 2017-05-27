@@ -22,5 +22,7 @@ RUN rm -rf /var/cache/apk/*
 COPY docker-entrypoint.sh /
 COPY database.conf ./
 
+RUN chmod +x /docker-entrypoint.sh
+
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD java -jar $GITBUCKET_HOME/latest.war --host=$GITBUCKET_HOST --port=$GITBUCKET_PORT --gitbucket.home=$GITBUCKET_HOME 
