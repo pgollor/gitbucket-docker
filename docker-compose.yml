@@ -14,6 +14,7 @@ services:
         - "${GITBUCKET_BIND:-127.0.0.1}:${GITBUCKET_SSH_PORT:-29418}:29418"
       networks:
         gitbucket-network:
+          ipv4_address: 172.22.2.250
           aliases:
             - gitbucket
 
@@ -27,6 +28,7 @@ services:
         - MYSQL_PASSWORD=${GITBUCKET_DATABASE_PASSWORD}
       networks:
         gitbucket-network:
+          ipv4_address: 172.22.2.251
           aliases:
             - mysql
 
