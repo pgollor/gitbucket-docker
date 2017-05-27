@@ -26,6 +26,8 @@ services:
         - MYSQL_DATABASE=${GITBUCKET_DATABASE}
         - MYSQL_USER=${GITBUCKET_DATABASE_USER}
         - MYSQL_PASSWORD=${GITBUCKET_DATABASE_PASSWORD}
+      volumes:
+        - mysql-vol-1:/var/lib/mysql
       networks:
         gitbucket-network:
           ipv4_address: 172.22.2.251
@@ -39,3 +41,6 @@ networks:
       driver: default
       config:
         - subnet: 172.22.2.0/24
+
+volumes:
+  mysql-vol-1:
