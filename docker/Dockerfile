@@ -1,5 +1,5 @@
 FROM anapsix/alpine-java:8
-LABEL maintainer "Pascal Gollor <ppascal@pgollor.de>"
+LABEL maintainer "Pascal Gollor <pascal@pgollor.de>"
 
 ENV GITBUCKET_HOST 0.0.0.0
 ENV GITBUCKET_PORT 8080
