@@ -12,3 +12,28 @@ services:
       ports:
         - "${GITBUCKET_BIND:-127.0.0.1}:${GITBUCKET_WEB_PORT:-8080}:8080"
         - "${GITBUCKET_BIND:-127.0.0.1}:${GITBUCKET_SSH_PORT:-29418}:29418"
+      networks:
+        gitbucket-network:
+          aliases:
+            - gitbucket
+
+    mysql-gitbucket:
+      image: mysql:5.7
+      restart: always
+      environment:
+        - MYSQL_ROOT_PASSWORD=${GITBUCKET_DATABASE_ROOT}
+        - MYSQL_DATABASE=${GITBUCKET_DATABASE}
+        - MYSQL_USER=${GITBUCKET_DATABASE_USER}
+        - MYSQL_PASSWORD=${GITBUCKET_DATABASE_PASSWORD}
+      networks:
+        gitbucket-network:
+          aliases:
+            - mysql
+
+networks:
+  gitbucket-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.22.2.0/24
