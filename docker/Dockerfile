@@ -18,4 +18,9 @@ RUN wget https://github.com/gitbucket/gitbucket/releases/download/4.12.1/gitbuck
 RUN apk del ca-certificates wget
 RUN rm -rf /var/cache/apk/*
 
+# copy files
+COPY docker-entrypoint.sh /
+COPY database.conf ./
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD java -jar $GITBUCKET_HOME/latest.war --host=$GITBUCKET_HOST --port=$GITBUCKET_PORT --gitbucket.home=$GITBUCKET_HOME 
