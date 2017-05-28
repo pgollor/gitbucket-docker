@@ -36,7 +36,7 @@ services:
         - MYSQL_PASSWORD=${GITBUCKET_DATABASE_PASSWORD}
       volumes:
         - mysql-vol-1:/var/lib/mysql/
-        - ./data/conf/mysel:/etc/mysql/conf.d/:ro
+        - ./data/conf/mysql:/etc/mysql/conf.d/:ro
       networks:
         gitbucket-network:
           ipv4_address: 172.22.2.251
