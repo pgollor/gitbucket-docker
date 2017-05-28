@@ -21,12 +21,17 @@ cd gitbucket
 ./generate_password.sh
 ```
 
-3. Change the confoguration and start with:
+3. Get latest container:
+```
+docker-compose pull
+```
+
+4. Change the confoguration and start with:
 ```
 docker-compose up -d
 ```
 
-4. Open `127.0.0.1:8080` and be habby. :-)
+5. Open `127.0.0.1:8080` and be habby. :-)
 
 
 ### configuration
@@ -35,6 +40,16 @@ There are three configs for gitbucket:
 - `GITBUCKET_BIND`: ip address to bind to
 - `GITBUCKET_WEB_PORT`: web port to bind to
 - `GITBUCKET_SSH_PORT`: ssh port to bind to
+
+
+### plugins
+To use plugins download the plugin and move it into `data/plugins`.
+After that restart the gitbucket container with `docker-compose restart main-gitbucket`.
+
+
+## TODO
+- wait for the next update and write an update howto
+- maybe a nginx container with ssl???
 
 
 ## Inspirations
