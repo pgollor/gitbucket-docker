@@ -41,3 +41,6 @@ There are three configs for gitbucket:
 I got some inspirations for this project from:
 - https://github.com/mailcow/mailcow-dockerized
 
+
+## License
+[License](LICENSE.md)
