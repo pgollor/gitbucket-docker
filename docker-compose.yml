@@ -2,7 +2,7 @@ version: '2.1'
 
 services:
     main-gitbucket:
-      image: pgollor/gitbucket
+      image: pgollor/gitbucket:4.13
       restart: always
       depends_on:
         - mysql-gitbucket
@@ -15,6 +15,8 @@ services:
         - ./data/repositories/:/srv/gitbucket/repositories/
         - ./data/plugins/:/srv/gitbucket/plugins/:ro
         - ./data/conf/gitbucket/gitbucket.conf:/srv/gitbucket/gitbucket.conf
+      tmpfs:
+        - /tmp
       ports:
         - "${GITBUCKET_BIND:-127.0.0.1}:${GITBUCKET_WEB_PORT:-8080}:8080"
         - "${GITBUCKET_BIND:-127.0.0.1}:${GITBUCKET_SSH_PORT:-29418}:29418"
