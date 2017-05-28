@@ -2,13 +2,13 @@
 
 This docker container of [gitbucket](https://github.com/gitbucket/gitbucket.git) is under testing!!!
 
-## usage
+## Usage
 
-### dependencies
+### Dependencies
 - [docker](https://docs.docker.com/engine/installation/)
 - [docker-compose](https://docs.docker.com/compose/install/)
 
-### installation
+### Installation
 
 1. Get code from repository:
 ```
@@ -34,7 +34,7 @@ docker-compose up -d
 5. Open `127.0.0.1:8080` and be habby. :-)
 
 
-### configuration
+### Configuration
 Please use the configuration file `gitbucket.conf` for your personal changes.
 There are three configs for gitbucket:
 - `GITBUCKET_BIND`: ip address to bind to
@@ -42,9 +42,15 @@ There are three configs for gitbucket:
 - `GITBUCKET_SSH_PORT`: ssh port to bind to
 
 
-### plugins
+### Plugins
 To use plugins download the plugin and move it into `data/plugins`.
 After that restart the gitbucket container with `docker-compose restart main-gitbucket`.
+
+
+### Backup
+For backuping the mysql database and the repositories you could use the `backup.sh` script and combine it with a daily cronjob.
+This script will create a compressed backup and keep the files 10 days in the backup directory.
+All files which are older then 10 days will be deleted.
 
 
 ## TODO
