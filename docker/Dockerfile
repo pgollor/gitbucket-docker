@@ -7,6 +7,7 @@ ENV GITBUCKET_HOME /srv/gitbucket
 
 # mark voulmes
 VOLUME $GITBUCKET_HOME/repositories
+VOLUME $GITBUCKET_HOME/plugins
 
 # set environment
 #RUN mkdir $GITBUCKET_HOME
