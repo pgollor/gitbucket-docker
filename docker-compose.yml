@@ -12,8 +12,8 @@ services:
         - GITBUCKET_DATABASE_USER=${GITBUCKET_DATABASE_USER}
         - GITBUCKET_DATABASE_PASSWORD=${GITBUCKET_DATABASE_PASSWORD}
       volumes:
-        - ./data/repositories:/srv/gitbucket/repositories
-        - ./data/gitbucket.conf:/srv/gitbucket/gitbucket.conf
+        - ./data/repositories/:/srv/gitbucket/repositories/
+        - ./data/conf/gitbucket/gitbucket.conf:/srv/gitbucket/gitbucket.conf
       ports:
         - "${GITBUCKET_BIND:-127.0.0.1}:${GITBUCKET_WEB_PORT:-8080}:8080"
         - "${GITBUCKET_BIND:-127.0.0.1}:${GITBUCKET_SSH_PORT:-29418}:29418"
@@ -32,7 +32,8 @@ services:
         - MYSQL_USER=${GITBUCKET_DATABASE_USER}
         - MYSQL_PASSWORD=${GITBUCKET_DATABASE_PASSWORD}
       volumes:
-        - mysql-vol-1:/var/lib/mysql
+        - mysql-vol-1:/var/lib/mysql/
+        - ./data/conf/mysel:/etc/mysql/conf.d/:ro
       networks:
         gitbucket-network:
           ipv4_address: 172.22.2.251
