@@ -10,21 +10,23 @@ This docker container of [gitbucket](https://github.com/gitbucket/gitbucket.git)
 
 ### installation
 
-Get code from repository:
+1. Get code from repository:
 ```
 git clone https://gitbucket.pgollor.de/git/docker/gitbucket.git
 cd gitbucket
 ```
 
-Generate new passwords for your databse!!!
+2. Generate new passwords for your databse!!!
 ```
 ./generate_password.sh
 ```
 
-Change the confoguration and start with:
+3. Change the confoguration and start with:
 ```
 docker-compose up -d
 ```
+
+4. Open `127.0.0.1:8080` and be habby. :-)
 
 
 ### configuration
