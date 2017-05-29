@@ -79,7 +79,6 @@ All files which are older then 10 days will be deleted.
 
 
 ## TODO
-- wait for the next update and write an update howto
 - maybe a nginx container with ssl???
 
 
