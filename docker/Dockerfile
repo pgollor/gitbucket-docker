@@ -16,7 +16,7 @@ WORKDIR $GITBUCKET_HOME
 # setup
 RUN apk update
 RUN apk add ca-certificates wget
-RUN wget https://github.com/gitbucket/gitbucket/releases/download/4.12.1/gitbucket.war -O $GITBUCKET_HOME/latest.war
+RUN wget https://github.com/gitbucket/gitbucket/releases/download/4.13/gitbucket.war -O $GITBUCKET_HOME/latest.war
 
 # clean
 RUN apk del ca-certificates wget
