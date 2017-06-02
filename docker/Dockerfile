@@ -9,24 +9,24 @@ ENV GITBUCKET_HOME /srv/gitbucket
 VOLUME $GITBUCKET_HOME/repositories
 VOLUME $GITBUCKET_HOME/plugins
 
-# set environment
-#RUN mkdir $GITBUCKET_HOME
-WORKDIR $GITBUCKET_HOME
-
 # setup
 RUN apk update
-RUN apk add ca-certificates wget
+RUN apk add ca-certificates wget su-exec
+
+# get gitbucket
 RUN wget https://github.com/gitbucket/gitbucket/releases/download/4.13/gitbucket.war -O $GITBUCKET_HOME/latest.war
 
 # clean
 RUN apk del ca-certificates wget
 RUN rm -rf /var/cache/apk/*
 
+# set environment
+WORKDIR $GITBUCKET_HOME
+
 # copy files
 COPY docker-entrypoint.sh /
 COPY database.conf ./
-
 RUN chmod +x /docker-entrypoint.sh
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD java -jar $GITBUCKET_HOME/latest.war --host=$GITBUCKET_HOST --port=$GITBUCKET_PORT --gitbucket.home=$GITBUCKET_HOME
+CMD su-exec gitbucket java -jar $GITBUCKET_HOME/latest.war --host=$GITBUCKET_HOST --port=$GITBUCKET_PORT --gitbucket.home=$GITBUCKET_HOME
