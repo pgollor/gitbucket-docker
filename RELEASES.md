@@ -1,7 +1,9 @@
 # Releases
 
 ## 1.2b
-- runt as non root gitbucket user
+- run as non root gitbucket user
+- bind data nad gist dir
+- backup data and gist dir
 
 ## 1.1b
 - add gitbucket 4.13
