@@ -6,7 +6,7 @@ USER_ID=${GITBUCKET_USER_ID:-9000}
 echo "gitbucket user id: $USER_ID"
 if ! id -u gitbucket >/dev/null 2>&1; then
 	echo "create gitbucket user"
-	adduser -u $USER_ID --disabled-password --gecos '' --home ${GITBUCKET_HOME} gitbucket
+	adduser -u $USER_ID -D -g '' -h ${GITBUCKET_HOME} gitbucket
 fi
 
 # update user rights
