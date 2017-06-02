@@ -14,6 +14,8 @@ services:
         - GITBUCKET_DATABASE_PASSWORD=${GITBUCKET_DATABASE_PASSWORD}
       volumes:
         - ./data/repositories/:/srv/gitbucket/repositories/
+        - ./data/data/:/srv/gitbucket/data/
+        - ./data/gist/:/srv/gitbucket/gist/
         - ./data/plugins/:/srv/gitbucket/plugins/
         - ./data/conf/gitbucket/gitbucket.conf:/srv/gitbucket/gitbucket.conf
       tmpfs:

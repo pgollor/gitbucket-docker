@@ -7,6 +7,8 @@ ENV GITBUCKET_HOME /srv/gitbucket
 
 # mark voulmes
 VOLUME $GITBUCKET_HOME/repositories
+VOLUME $GITBUCKET_HOME/data
+VOLUME $GITBUCKET_HOME/gist
 VOLUME $GITBUCKET_HOME/plugins
 
 # setup
