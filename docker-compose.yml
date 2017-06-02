@@ -7,13 +7,14 @@ services:
       depends_on:
         - mysql-gitbucket
       environment:
+        - GITBUCKET_USER_ID=${GITBUCKET_USER_ID:-9000}
         - GITBUCKET_DATABASE_HOST=172.22.2.251
         - GITBUCKET_DATABASE_NAME=${GITBUCKET_DATABASE_NAME}
         - GITBUCKET_DATABASE_USER=${GITBUCKET_DATABASE_USER}
         - GITBUCKET_DATABASE_PASSWORD=${GITBUCKET_DATABASE_PASSWORD}
       volumes:
         - ./data/repositories/:/srv/gitbucket/repositories/
-        - ./data/plugins/:/srv/gitbucket/plugins/:ro
+        - ./data/plugins/:/srv/gitbucket/plugins/
         - ./data/conf/gitbucket/gitbucket.conf:/srv/gitbucket/gitbucket.conf
       tmpfs:
         - /tmp
