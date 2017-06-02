@@ -79,7 +79,6 @@ All files which are older then 10 days will be deleted.
 
 
 ## TODO
-- using gitbucket user and not root
 - check gitbucket.war hash after download
 - maybe a nginx container with ssl???
 
