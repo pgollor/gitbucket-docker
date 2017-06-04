@@ -89,4 +89,4 @@ I got some inspirations for this project from:
 
 
 ## License
-[License](LICENSE.md)
+[![cc-bc-sa](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/): Please see [license](LICENSE.md)
