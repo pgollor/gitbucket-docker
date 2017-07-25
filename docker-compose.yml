@@ -12,7 +12,7 @@ services:
         - GITBUCKET_DATABASE_NAME=${GITBUCKET_DATABASE_NAME}
         - GITBUCKET_DATABASE_USER=${GITBUCKET_DATABASE_USER}
         - GITBUCKET_DATABASE_PASSWORD=${GITBUCKET_DATABASE_PASSWORD}
-        - TZ=Europe/Berlin
+        - TZ={TZ}
       volumes:
         - ./data/repositories/:/srv/gitbucket/repositories/
         - ./data/data/:/srv/gitbucket/data/
