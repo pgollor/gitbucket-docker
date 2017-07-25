@@ -2,7 +2,7 @@ version: '2.1'
 
 services:
     main-gitbucket:
-      image: pgollor/gitbucket:4.13
+      image: pgollor/gitbucket:4.14.1
       restart: always
       depends_on:
         - mysql-gitbucket
