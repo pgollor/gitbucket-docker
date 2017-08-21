@@ -5,6 +5,7 @@
 backupDir=./backup
 mkdir -p ${backupDir}
 mkdir -p ${backupDir}/db
+mkdir -p ${backupDir}/conf
 if [ -d "data/data" ]; then
 	mkdir -p ${backupDir}/data
 fi
@@ -26,6 +27,9 @@ rm ${dbFile}
 # backup repositories
 repoFile="${backupDir}/repositories/${currentDate}.tbz2"
 tar -cj data/repositories -f ${repoFile}
+
+# backup config files
+tar -cj data/conf -f "${backupDir}/conf/${currentDate}.tbz2"
 
 # backup gist repositories if existing
 if [ -d "data/gist" ]; then
