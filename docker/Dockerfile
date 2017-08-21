@@ -13,13 +13,13 @@ VOLUME $GITBUCKET_HOME/plugins
 
 # setup
 RUN apk update
-RUN apk add ca-certificates wget su-exec
+RUN apk add ca-certificates wget su-exec git
 
 # get gitbucket
 RUN wget https://github.com/gitbucket/gitbucket/releases/download/4.14.1/gitbucket.war -O $GITBUCKET_HOME/latest.war
 
 # clean
-RUN apk del ca-certificates wget
+RUN apk del wget
 RUN rm -rf /var/cache/apk/*
 
 # set environment
