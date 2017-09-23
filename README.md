@@ -78,6 +78,17 @@ This script will create a compressed backup and keep the files 10 days in the ba
 All files which are older then 10 days will be deleted.
 
 
+## Troubleshooting
+
+### Error 503 on first start
+Please check the gitbucket log files with
+```
+docker-compose logs main-gitbucket
+```
+If you get `Could not connect to address=(host=172.22.2.251)` as error: Please restart the gitbucket container with `docker-compose restart main-gitbucket` because the mariadb container needs some time to run completly at the first start.
+After that it should be work. If doesn't please create a issue here.
+
+
 ## TODO
 - check gitbucket.war hash after download
 - maybe a nginx container with ssl???
