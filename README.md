@@ -32,6 +32,7 @@ docker-compose up -d
 ```
 
 5. Open `127.0.0.1:8080` and be habby. :-)
+Default user and passwort are both root.
 
 
 ### Configuration
