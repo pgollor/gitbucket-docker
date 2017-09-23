@@ -86,8 +86,10 @@ Please check the gitbucket log files with
 ```
 docker-compose logs main-gitbucket
 ```
-If you get `Could not connect to address=(host=172.22.2.251)` as error: Please restart the gitbucket container with `docker-compose restart main-gitbucket` because the mariadb container needs some time to run completly at the first start.
-After that it should be work. If doesn't please create a issue here.
+If you get `Could not connect to address=(host=172.22.2.251)` as error:
+Please restart the gitbucket container with `docker-compose restart main-gitbucket` because the mariadb container needs some time to run completly at the first start.
+After that it should be work.
+If doesn't please contact me via `issue@pgollor.de` because gitbucket does not allow issues for guests.
 
 
 ## TODO
