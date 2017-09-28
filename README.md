@@ -1,6 +1,10 @@
-#Summary 
+# docker container for gitbucket
 
-- [docker container for gitbucket](#section-id-1)
+This docker container of [gitbucket](https://github.com/gitbucket/gitbucket.git) is under testing!!!
+
+
+## Table of contents 
+
   - [Usage](#section-id-5)
     - [Dependencies](#section-id-7)
     - [Installation](#section-id-11)
@@ -15,13 +19,6 @@
   - [Inspirations](#section-id-105)
   - [License](#section-id-110)
   
-
-
-<div id='section-id-1'/>
-
-# docker container for gitbucket
-
-This docker container of [gitbucket](https://github.com/gitbucket/gitbucket.git) is under testing!!!
 
 <div id='section-id-5'/>
 
