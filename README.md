@@ -92,6 +92,10 @@ After that it should be work.
 If doesn't please contact me via `issue@pgollor.de` because gitbucket does not allow issues for guests.
 
 
+## Contact and Contribution
+You can write me an email ( `kalle@pgollor.de` ) or you could register here as an user to contribute to this project.
+
+
 ## TODO
 - check gitbucket.war hash after download
 - maybe a nginx container with ssl???
