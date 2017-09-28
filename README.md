@@ -94,6 +94,7 @@ If doesn't please contact me via `issue@pgollor.de` because gitbucket does not a
 
 ## Contact and Contribution
 You can write me an email ( `kalle@pgollor.de` ) or you could register here as an user to contribute to this project.
+After register please fork this repository and create pull reqeusts with your changes or add an issue.
 
 
 ## TODO
