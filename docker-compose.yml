@@ -2,7 +2,7 @@ version: '2.1'
 
 services:
     main-gitbucket:
-      image: pgollor/gitbucket:4.15.0
+      image: pgollor/gitbucket:4.16.0
       restart: always
       depends_on:
         - mysql-gitbucket
@@ -22,8 +22,8 @@ services:
       tmpfs:
         - /tmp
       ports:
-        - "${GITBUCKET_BIND:-127.0.0.1}:${GITBUCKET_WEB_PORT:-8080}:8080"
-        - "${GITBUCKET_BIND:-127.0.0.1}:${GITBUCKET_SSH_PORT:-29418}:29418"
+        - "${GITBUCKET_WEB_BIND:-127.0.0.1}:${GITBUCKET_WEB_PORT:-8080}:8080"
+        - "${GITBUCKET_SSH_BIND:-127.0.0.1}:${GITBUCKET_SSH_PORT:-29418}:29418"
       networks:
         gitbucket-network:
           ipv4_address: 172.22.2.250
