@@ -20,7 +20,8 @@ currentDate=$(date +"%Y-%m-%d_%H-%M-%S")
 
 # backup mysql
 dbFile="${backupDir}/db/${currentDate}.sql"
-docker-compose exec mysql-gitbucket sh -c 'exec mysqldump --lock-tables --default-character-set=utf8mb4 -uroot -p"${MYSQL_ROOT_PASSWORD}" ${GITBUCKET_DATABASE}' > ${dbFile}
+docker-compose exec mysql-gitbucket sh -c 'exec mysqldump --lock-tables --default-character-set=utf8mb4 -uroot -p"${MYSQL_ROOT_PASSWORD}" ${MYSQL_DATABASE}' > ${dbFile}
+sed -i "/^mysqldump: \\[Warning\\]/d" ${dbFile}
 tar -cj ${dbFile} -f "${dbFile}.tbz2"
 rm ${dbFile}
 
