@@ -3,6 +3,7 @@ version: '2.1'
 services:
     main-gitbucket:
       image: pgollor/gitbucket:4.17.0
+      mem_limit: 2g
       restart: always
       depends_on:
         - mysql-gitbucket
