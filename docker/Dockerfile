@@ -1,6 +1,10 @@
 FROM anapsix/alpine-java:8
 LABEL maintainer "Pascal Gollor <pascal@pgollor.de>"
 
+# ports
+EXPOSE 29418
+EXPOSE 8080
+
 ENV GITBUCKET_HOST 0.0.0.0
 ENV GITBUCKET_PORT 8080
 ENV GITBUCKET_HOME /srv/gitbucket
