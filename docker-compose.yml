@@ -2,7 +2,7 @@ version: '2.1'
 
 services:
     main-gitbucket:
-      image: pgollor/gitbucket:4.19.3
+      image: pgollor/gitbucket:latest
       mem_limit: 2g
       restart: always
       depends_on:
