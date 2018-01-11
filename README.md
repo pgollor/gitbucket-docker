@@ -35,6 +35,16 @@ This docker container of [gitbucket](https://github.com/gitbucket/gitbucket.git)
 
 <div id='section-id-11'/>
 
+### Update
+
+Please make a backup from the hole directory bevor update your repsitory and commit your changes!
+
+#### from 4.19.3 to 4.20.0
+You have to backup your `gitbucket.conf` because this config does not exist in the repository any more.
+You have to manage the config file manually.
+The new install script will create a local config fiel as copy from `gitbucket.conf.example` and generate new passwords.
+
+
 ### Installation
 
 1. Get code from repository:
