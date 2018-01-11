@@ -1,6 +1,7 @@
 # docker container for gitbucket
 
 [![Build Status](https://jenkins.pgollor.de/job/gitbucket-docker-master/badge/icon)](https://jenkins.pgollor.de/job/gitbucket-docker-master/)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/pgollor)
 
 This docker container of [gitbucket](https://github.com/gitbucket/gitbucket.git) is in beta state!
 
@@ -42,22 +43,17 @@ git clone https://gitbucket.pgollor.de/git/docker/gitbucket.git
 cd gitbucket
 ```
 
-2. Generate new passwords for your databse!!!
+2. Execute install script
 ```
-./generate_password.sh
-```
-
-3. Get latest container:
-```
-docker-compose pull
+./install.sh
 ```
 
-4. Change the confoguration and start with:
+3. Change the confoguration and start with:
 ```
 docker-compose up -d
 ```
 
-5. Open `127.0.0.1:8080` and be habby. :-)
+4. Open `127.0.0.1:8080` and be habby. :-)
 Default user and passwort are both root.
 
 

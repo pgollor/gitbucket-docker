@@ -1,6 +1,10 @@
 FROM anapsix/alpine-java:8
 LABEL maintainer "Pascal Gollor <pascal@pgollor.de>"
 
+# ports
+EXPOSE 29418
+EXPOSE 8080
+
 ENV GITBUCKET_HOST 0.0.0.0
 ENV GITBUCKET_PORT 8080
 ENV GITBUCKET_HOME /srv/gitbucket
@@ -10,13 +14,14 @@ VOLUME $GITBUCKET_HOME/repositories
 VOLUME $GITBUCKET_HOME/data
 VOLUME $GITBUCKET_HOME/gist
 VOLUME $GITBUCKET_HOME/plugins
+VOLUME $GITBUCKET_HOME/tmp
 
 # setup
 RUN apk update
 RUN apk add ca-certificates wget su-exec git
 
 # get gitbucket
-RUN wget https://github.com/gitbucket/gitbucket/releases/download/4.19.3/gitbucket.war -O $GITBUCKET_HOME/latest.war
+RUN wget https://github.com/gitbucket/gitbucket/releases/download/4.20.0/gitbucket.war -O $GITBUCKET_HOME/latest.war
 
 # clean
 RUN apk del wget

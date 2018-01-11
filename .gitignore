@@ -1,5 +1,6 @@
-data/repositories
-data/plugins
-data/gist
-data/data
-backup
+/data/repositories
+/data/plugins
+/data/gist
+/data/data
+/backup
+/gitbucket.conf

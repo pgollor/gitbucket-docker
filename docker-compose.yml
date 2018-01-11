@@ -20,6 +20,7 @@ services:
         - ./data/data/:/srv/gitbucket/data/
         - ./data/gist/:/srv/gitbucket/gist/
         - ./data/plugins/:/srv/gitbucket/plugins/
+        - ./data/tmp/:/srv/gitbucket/tmp/
         - ./data/conf/gitbucket/gitbucket.conf:/srv/gitbucket/gitbucket.conf
       tmpfs:
         - /tmp
