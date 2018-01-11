@@ -5,11 +5,12 @@ LABEL maintainer "Pascal Gollor <pascal@pgollor.de>"
 EXPOSE 29418
 EXPOSE 8080
 
+# environment variables
 ENV GITBUCKET_HOST 0.0.0.0
 ENV GITBUCKET_PORT 8080
 ENV GITBUCKET_HOME /srv/gitbucket
 
-# mark voulmes
+# mark volumes
 VOLUME $GITBUCKET_HOME/repositories
 VOLUME $GITBUCKET_HOME/data
 VOLUME $GITBUCKET_HOME/gist
