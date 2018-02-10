@@ -1,6 +1,6 @@
 # docker container for gitbucket
 
-[![Build Status](https://jenkins.pgollor.de/job/gitbucket-docker-develop/badge/icon)](https://jenkins.pgollor.de/job/gitbucket-docker-develop/)
+[![Build Status](https://jenkins.pgollor.de/job/gitbucket-docker-master/badge/icon)](https://jenkins.pgollor.de/job/gitbucket-docker-master/)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/pgollor)
 
 This docker container of [gitbucket](https://github.com/gitbucket/gitbucket.git) is in beta state!
