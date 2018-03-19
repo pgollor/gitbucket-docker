@@ -17,6 +17,10 @@ VOLUME $GITBUCKET_HOME/gist
 VOLUME $GITBUCKET_HOME/plugins
 #VOLUME $GITBUCKET_HOME/tmp
 
+# update mirror
+RUN echo http://ftp.halifax.rwth-aachen.de/alpine/latest-stable/main > /etc/apk/repositories; \
+	echo http://ftp.halifax.rwth-aachen.de/alpine/latest-stable/community >> /etc/apk/repositories
+
 # setup
 RUN apk update
 RUN apk add ca-certificates wget su-exec git
