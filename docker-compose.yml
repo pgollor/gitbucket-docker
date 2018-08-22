@@ -34,7 +34,7 @@ services:
             - gitbucket
 
     mysql-gitbucket:
-      image: mariadb:10.2
+      image: mariadb:10.3
       restart: always
       command: mysqld --skip-name-resolve --skip-host-cache --log-warnings=0
       healthcheck:
