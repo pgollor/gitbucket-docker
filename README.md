@@ -36,15 +36,6 @@ This docker container of [gitbucket](https://github.com/gitbucket/gitbucket.git)
 
 <div id='section-id-11'/>
 
-### Update
-
-Please make a backup from the hole directory bevor update your repsitory and commit your changes!
-
-#### from 4.19.3 to 4.20.0
-You have to backup your `gitbucket.conf` because this config does not exist in the repository any more.
-You have to manage the config file manually.
-The new install script will create a local config fiel as copy from `gitbucket.conf.example` and generate new passwords.
-
 
 ### Installation
 
@@ -83,6 +74,21 @@ There are three configs for gitbucket:
 ### Update
 Update your gitbucket image in three steps.
 But first of all: **MAKE A BACKUP!!!**
+
+#### from 4.19.3 to 4.20.0
+You have to backup your `gitbucket.conf` because this config does not exist in the repository any more.
+You have to manage the config file manually.
+The new install script will create a local config fiel as copy from `gitbucket.conf.example` and generate new passwords.
+
+#### from 4.27.0 to 4.28.0
+
+To prevent error messages (like: `[Warning] InnoDB: Table mysql/innodb_table_stats has length mismatch in the column name table_name.  Please run mysql_upgrade` for mariadb.
+Go to the directory where the `docker-compose.yml` file is located and execute the following commands:
+
+```
+source gitbucket.conf
+docker-compose exec mysql-gitbucket sh -c 'exec mysql_upgrade -uroot -p"${MYSQL_ROOT_PASSWORD}"'
+```
 
 1. Commit your local changes. Changes in `gitbucket.conf` will be ignored!
 
