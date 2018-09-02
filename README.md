@@ -82,13 +82,15 @@ The new install script will create a local config fiel as copy from `gitbucket.c
 
 #### from 4.27.0 to 4.28.0
 
-To prevent error messages (like: `[Warning] InnoDB: Table mysql/innodb_table_stats has length mismatch in the column name table_name.  Please run mysql_upgrade` for mariadb.
+To prevent error messages (like: `[Warning] InnoDB: Table mysql/innodb_table_stats has length mismatch in the column name table_name.  Please run mysql_upgrade`) for mariadb.
 Go to the directory where the `docker-compose.yml` file is located and execute the following commands:
 
 ```
 source gitbucket.conf
 docker-compose exec mysql-gitbucket sh -c 'exec mysql_upgrade -uroot -p"${MYSQL_ROOT_PASSWORD}"'
 ```
+
+#### do update
 
 1. Commit your local changes. Changes in `gitbucket.conf` will be ignored!
 
