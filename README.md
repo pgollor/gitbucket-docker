@@ -2,7 +2,7 @@
 
 [![Build Status](https://jenkins.pgollor.de/job/gitbucket-docker-master/badge/icon)](https://jenkins.pgollor.de/job/gitbucket-docker-master/)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/pgollor)
-[![Version 4.29.0](https://img.shields.io/badge/gitbucket_version-4.29.0-blue.svg)](https://github.com/gitbucket/gitbucket/releases/tag/4.29.0)
+[![Version 4.30.0](https://img.shields.io/badge/gitbucket_version-4.30.0-blue.svg)](https://github.com/gitbucket/gitbucket/releases/tag/4.30.0)
 
 This docker container of [gitbucket](https://github.com/gitbucket/gitbucket.git) is in beta state!
 
