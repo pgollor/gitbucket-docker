@@ -26,7 +26,7 @@ RUN apk update
 RUN apk add ca-certificates wget su-exec git
 
 # get gitbucket
-RUN wget https://github.com/gitbucket/gitbucket/releases/download/4.30.0/gitbucket.war -O $GITBUCKET_HOME/latest.war
+RUN wget https://github.com/gitbucket/gitbucket/releases/download/4.30.1/gitbucket.war -O $GITBUCKET_HOME/latest.war
 
 # clean
 RUN apk del wget
