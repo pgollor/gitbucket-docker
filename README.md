@@ -1,6 +1,6 @@
 # docker container for gitbucket
 
-[![Build Status](https://jenkins.pgollor.de/job/gitbucket-docker-master/badge/icon)](https://jenkins.pgollor.de/job/gitbucket-docker-master/)
+[![Build Status](https://jenkins.pgollor.de/job/gitbucket-docker-develop/badge/icon)](https://jenkins.pgollor.de/job/gitbucket-docker-develop/)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/pgollor)
 [![Docker Pulls](https://img.shields.io/docker/pulls/pgollor/gitbucket.svg?maxAge=2592000)](https://hub.docker.com/r/pgollor/gitbucket/)
 [![Version 4.30.1](https://img.shields.io/badge/gitbucket_version-4.30.1-blue.svg)](https://github.com/gitbucket/gitbucket/releases/tag/4.30.1)
