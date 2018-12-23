@@ -2,20 +2,16 @@ FROM anapsix/alpine-java:8
 LABEL maintainer "Pascal Gollor <pascal@pgollor.de>"
 
 # ports
-EXPOSE 29418
-EXPOSE 8080
+EXPOSE 29418/tcp
+EXPOSE 8080/tcp
 
 # environment variables
 ENV GITBUCKET_HOST 0.0.0.0
 ENV GITBUCKET_PORT 8080
 ENV GITBUCKET_HOME /srv/gitbucket
 
-# mark volumes
-VOLUME $GITBUCKET_HOME/repositories
-VOLUME $GITBUCKET_HOME/data
-VOLUME $GITBUCKET_HOME/gist
-VOLUME $GITBUCKET_HOME/plugins
-#VOLUME $GITBUCKET_HOME/tmp
+# create home
+RUN mkdir -p $GITBUCKET_HOME
 
 # update mirror
 RUN echo http://ftp.halifax.rwth-aachen.de/alpine/latest-stable/main > /etc/apk/repositories; \
@@ -28,9 +24,20 @@ RUN apk add ca-certificates wget su-exec git
 # get gitbucket
 RUN wget https://github.com/gitbucket/gitbucket/releases/download/4.30.1/gitbucket.war -O $GITBUCKET_HOME/latest.war
 
+# get backup plugin
+RUN mkdir $GITBUCKET_HOME/plugins
+RUN wget https://github.com/jyuch/gitbucket-backup-plugin/releases/download/1.2.1/gitbucket-backup-plugin-gitbucket_4.29.0-1.2.1.jar -O $GITBUCKET_HOME/plugins/gitbucket-backup-plugin-gitbucket_4.29.0-1.2.1.jar
+
 # clean
 RUN apk del wget
 RUN rm -rf /var/cache/apk/*
+
+# mark volumes
+VOLUME $GITBUCKET_HOME/repositories
+VOLUME $GITBUCKET_HOME/data
+VOLUME $GITBUCKET_HOME/gist
+VOLUME $GITBUCKET_HOME/plugins
+VOLUME $GITBUCKET_HOME/backup
 
 # set environment
 WORKDIR $GITBUCKET_HOME
