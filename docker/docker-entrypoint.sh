@@ -19,4 +19,6 @@ sed -i "s/GITBUCKET_DATABASE_HOST/${GITBUCKET_DATABASE_HOST}/" $dbfile
 sed -i "s/GITBUCKET_DATABASE_PASSWORD/${GITBUCKET_DATABASE_PASSWORD}/" $dbfile
 sed -i "s/GITBUCKET_DATABASE_USER/${GITBUCKET_DATABASE_USER}/" $dbfile
 
+wget https://github.com/jyuch/gitbucket-backup-plugin/releases/download/1.2.1/gitbucket-backup-plugin-gitbucket_4.29.0-1.2.1.jar -O $GITBUCKET_HOME/plugins/gitbucket-backup-plugin-gitbucket_4.29.0-1.2.1.jar
+
 exec "$@"
