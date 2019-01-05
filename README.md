@@ -3,7 +3,6 @@
 [![Build Status](https://jenkins.pgollor.de/job/gitbucket-docker-master/badge/icon)](https://jenkins.pgollor.de/job/gitbucket-docker-master/)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/pgollor)
 [![Docker Pulls](https://img.shields.io/docker/pulls/pgollor/gitbucket.svg)](https://hub.docker.com/r/pgollor/gitbucket/)
-[![Version 4.30.1](https://img.shields.io/badge/gitbucket_version-4.30.1-blue.svg)](https://github.com/gitbucket/gitbucket/releases/tag/4.30.1)
 [![](https://images.microbadger.com/badges/image/pgollor/gitbucket.svg)](https://microbadger.com/images/pgollor/gitbucket "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/pgollor/gitbucket.svg)](https://microbadger.com/images/pgollor/gitbucket "Get your own version badge on microbadger.com")
 
