@@ -4,6 +4,8 @@
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/pgollor)
 [![Docker Pulls](https://img.shields.io/docker/pulls/pgollor/gitbucket.svg?maxAge=2592000)](https://hub.docker.com/r/pgollor/gitbucket/)
 [![Version 4.30.1](https://img.shields.io/badge/gitbucket_version-4.30.1-blue.svg)](https://github.com/gitbucket/gitbucket/releases/tag/4.30.1)
+[![](https://images.microbadger.com/badges/image/pgollor/gitbucket.svg)](https://microbadger.com/images/pgollor/gitbucket "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/pgollor/gitbucket.svg)](https://microbadger.com/images/pgollor/gitbucket "Get your own version badge on microbadger.com")
 
 This docker container of [gitbucket](https://github.com/gitbucket/gitbucket.git) is in beta state!
 
