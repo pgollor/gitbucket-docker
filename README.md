@@ -110,6 +110,11 @@ After that restart the gitbucket container with `docker-compose restart main-git
 
 
 ### Backup
+
+Since 4.30.0 the backupplugin is included.
+Automatic backup works, but the E-Mail notification does not work yet.
+
+#### Full Backup via `backup.sh`
 For backuping the mysql database and the repositories you could use the `backup.sh` script and combine it with a daily cronjob.
 This script will create a compressed backup and keep the files 10 days in the backup directory.
 All files which are older then 10 days will be deleted.
