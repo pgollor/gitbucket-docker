@@ -44,5 +44,8 @@ if [ -d "data/data" ]; then
 	tar -cj data/data -f ${repoFile}
 fi
 
+# backup ssh serial
+docker-compose exec main-gitbucket sh -c 'cat $GITBUCKET_HOME/gitbucket.ser' > "${backupDir}/gitbucket-${currentDate}.ser"
+
 # delete all files older 10 days
 find ${backupDir} -iname "*.tbz2" -type f -mtime +10 -exec rm {} \; > /dev/null
