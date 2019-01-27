@@ -24,11 +24,14 @@ RUN apk add ca-certificates wget su-exec git
 # get gitbucket
 RUN wget https://github.com/gitbucket/gitbucket/releases/download/4.30.1/gitbucket.war -O $GITBUCKET_HOME/latest.war
 
-# create backup plugin
+# create plugin dir
 RUN mkdir $GITBUCKET_HOME/plugins
 
+# get backup plugin
+RUN wget https://github.com/jyuch/gitbucket-backup-plugin/releases/download/1.2.1/gitbucket-backup-plugin-gitbucket_4.29.0-1.2.1.jar -O $GITBUCKET_HOME/gitbucket-backup-plugin-gitbucket_4.29.0-1.2.1.jar
+
 # clean
-#RUN apk del wget
+RUN apk del wget
 RUN rm -rf /var/cache/apk/*
 
 # mark volumes
