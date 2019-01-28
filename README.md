@@ -124,7 +124,12 @@ After that restart the gitbucket container with `docker-compose restart main-git
 ### Backup
 
 Since 4.30.0 the backupplugin is included.
-Automatic backup works, but the E-Mail notification does not work yet.
+Automatic backup for repository works, but the E-Mail notification does not work yet.
+If you want a full backup, please use `backup.sh` like:
+
+```
+./backup.sh backup all
+```
 
 #### Full Backup via `backup.sh`
 For backuping the mysql database and the repositories you could use the `backup.sh` script and combine it with a daily cronjob.
