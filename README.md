@@ -86,7 +86,7 @@ docker-compose exec mysql-gitbucket sh -c 'exec mysql_upgrade -uroot -p"${MYSQL_
 
 #### do update
 
-1. Commit your local changes. Changes in `gitbucket.conf` will be ignored!
+1. Commit your local changes. Changes in `gitbucket.conf` will be ignored! Pull changes from repository master via `git pull` or `git merge`.
 
 2. Backup
 ```
