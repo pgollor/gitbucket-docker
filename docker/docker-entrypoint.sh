@@ -19,4 +19,9 @@ sed -i "s/GITBUCKET_DATABASE_HOST/${GITBUCKET_DATABASE_HOST}/" $dbfile
 sed -i "s/GITBUCKET_DATABASE_PASSWORD/${GITBUCKET_DATABASE_PASSWORD}/" $dbfile
 sed -i "s/GITBUCKET_DATABASE_USER/${GITBUCKET_DATABASE_USER}/" $dbfile
 
+# download backup plugin if not present
+if [ ! -f "$GITBUCKET_HOME/plugins/gitbucket-backup-plugin-gitbucket_4.29.0-1.2.1.jar" ]; then
+	mv $GITBUCKET_HOME/gitbucket-backup-plugin-gitbucket_4.29.0-1.2.1.jar $GITBUCKET_HOME/plugins/gitbucket-backup-plugin-gitbucket_4.29.0-1.2.1.jar
+fi
+
 exec "$@"

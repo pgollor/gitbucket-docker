@@ -2,7 +2,7 @@ version: '2.1'
 
 services:
     main-gitbucket:
-      image: pgollor/gitbucket:latest
+      image: pgollor/gitbucket:develop
       mem_limit: 2g
       restart: always
       depends_on:
@@ -20,8 +20,9 @@ services:
         - ./data/data/:/srv/gitbucket/data/
         - ./data/gist/:/srv/gitbucket/gist/
         - ./data/plugins/:/srv/gitbucket/plugins/
-        #- ./data/tmp/:/srv/gitbucket/tmp/
+        - ./data/backup/:/srv/gitbucket/backup/
         - ./data/conf/gitbucket/gitbucket.conf:/srv/gitbucket/gitbucket.conf
+        - ./data/conf/backup.conf:/srv/gitbucket/backup.conf
       tmpfs:
         - /tmp
       ports:

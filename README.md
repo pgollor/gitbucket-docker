@@ -5,6 +5,7 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/pgollor/gitbucket.svg)](https://hub.docker.com/r/pgollor/gitbucket/)
 [![](https://images.microbadger.com/badges/image/pgollor/gitbucket.svg)](https://microbadger.com/images/pgollor/gitbucket "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/pgollor/gitbucket.svg)](https://microbadger.com/images/pgollor/gitbucket "Get your own version badge on microbadger.com")
+![](https://img.shields.io/github/tag-date/gitbucket/gitbucket.svg?label=gitbucket%20latest)
 
 This docker container of [gitbucket](https://github.com/gitbucket/gitbucket.git) is in beta state!
 
@@ -66,6 +67,7 @@ There are three configs for gitbucket:
 ### Update
 Update your gitbucket image in three steps.
 But first of all: **MAKE A BACKUP!!!**
+Without backup the host ssh keys will be lost.
 
 #### from 4.19.3 to 4.20.0
 You have to backup your `gitbucket.conf` because this config does not exist in the repository any more.
@@ -86,7 +88,12 @@ docker-compose exec mysql-gitbucket sh -c 'exec mysql_upgrade -uroot -p"${MYSQL_
 
 1. Commit your local changes. Changes in `gitbucket.conf` will be ignored!
 
-2. get the new image
+2. Backup
+```
+./backup.sh backup all
+```
+
+3. get the new image
 Shutdown and remove your images. This will not delete your mysql database volume.
 ```
 docker-compose down
@@ -97,10 +104,15 @@ docker-compose pull
 docker-compose up -d --remove-orphans
 ```
 
-3. cleanup your docker environment
+4. cleanup your docker environment
 This step is optional. Please do this only if you understand the next line.
 ```
 docker rmi -f $(docker images -f "dangling=true" -q)
+```
+
+5. restore ssh keys
+```
+./backup.sh restore sshkeys
 ```
 
 
@@ -110,6 +122,16 @@ After that restart the gitbucket container with `docker-compose restart main-git
 
 
 ### Backup
+
+Since 4.30.0 the backupplugin is included.
+Automatic backup for repository works, but the E-Mail notification does not work yet.
+If you want a full backup, please use `backup.sh` like:
+
+```
+./backup.sh backup all
+```
+
+#### Full Backup via `backup.sh`
 For backuping the mysql database and the repositories you could use the `backup.sh` script and combine it with a daily cronjob.
 This script will create a compressed backup and keep the files 10 days in the backup directory.
 All files which are older then 10 days will be deleted.
