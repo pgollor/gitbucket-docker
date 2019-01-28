@@ -104,12 +104,15 @@ function restore() {
 	case "$1" in
 	sshkeys|all)
 
-	echo "restore ssh keys"
-
 	if [ ! -f "${backupDir}/gitbucket.ser" ]; then
 		echo "${backupDir}/gitbucket.ser does not exist"
 		exit 1
 	fi
+
+	IDmain=$(docker ps -qf name=main-gitbucket)
+
+	echo "restore ssh keys"
+	docker cp "${backupDir}/gitbucket.ser" ${IDmain}:/srv/gitbucket/gitbucket.ser
 
 	;;
 	esac
