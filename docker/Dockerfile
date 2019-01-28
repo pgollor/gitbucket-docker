@@ -1,6 +1,11 @@
 FROM anapsix/alpine-java:8
 LABEL maintainer "Pascal Gollor <pascal@pgollor.de>"
 
+ARG VCS_REF
+
+LABEL org.label-schema.vcs-url="https://gitbucket.pgollor.de/docker/gitbucket" \
+	org.label-schema.vcs-ref=$VCS_REF
+
 # ports
 EXPOSE 29418/tcp
 EXPOSE 8080/tcp
