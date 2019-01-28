@@ -67,6 +67,7 @@ There are three configs for gitbucket:
 ### Update
 Update your gitbucket image in three steps.
 But first of all: **MAKE A BACKUP!!!**
+Without backup the host ssh keys will be lost.
 
 #### from 4.19.3 to 4.20.0
 You have to backup your `gitbucket.conf` because this config does not exist in the repository any more.
@@ -87,7 +88,12 @@ docker-compose exec mysql-gitbucket sh -c 'exec mysql_upgrade -uroot -p"${MYSQL_
 
 1. Commit your local changes. Changes in `gitbucket.conf` will be ignored!
 
-2. get the new image
+2. Backup
+```
+./backup.sh backup all
+```
+
+3. get the new image
 Shutdown and remove your images. This will not delete your mysql database volume.
 ```
 docker-compose down
@@ -98,10 +104,15 @@ docker-compose pull
 docker-compose up -d --remove-orphans
 ```
 
-3. cleanup your docker environment
+4. cleanup your docker environment
 This step is optional. Please do this only if you understand the next line.
 ```
 docker rmi -f $(docker images -f "dangling=true" -q)
+```
+
+5. restore ssh keys
+```
+./backup.sh restore sshkeys
 ```
 
 
