@@ -10,7 +10,7 @@ services:
           condition: service_healthy
       environment:
         - GITBUCKET_USER_ID=${GITBUCKET_USER_ID:-9000}
-        - GITBUCKET_DATABASE_HOST=172.22.2.251
+        - GITBUCKET_DATABASE_HOST=database
         - GITBUCKET_DATABASE_NAME=${GITBUCKET_DATABASE_NAME}
         - GITBUCKET_DATABASE_USER=${GITBUCKET_DATABASE_USER}
         - GITBUCKET_DATABASE_PASSWORD=${GITBUCKET_DATABASE_PASSWORD}
@@ -31,7 +31,6 @@ services:
         - "${GITBUCKET_SSH_BIND:-127.0.0.1}:${GITBUCKET_SSH_PORT:-29418}:29418"
       networks:
         gitbucket-network:
-          ipv4_address: 172.22.2.250
           aliases:
             - gitbucket
 
@@ -55,9 +54,8 @@ services:
         - ./data/conf/mysql:/etc/mysql/conf.d/:ro
       networks:
         gitbucket-network:
-          ipv4_address: 172.22.2.251
           aliases:
-            - mysql
+            - database
 
 networks:
   gitbucket-network:
@@ -65,8 +63,6 @@ networks:
     enable_ipv6: false
     ipam:
       driver: default
-      config:
-        - subnet: 172.22.2.0/24
 
 volumes:
   mysql-vol-1:
