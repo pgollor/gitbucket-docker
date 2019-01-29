@@ -15,6 +15,9 @@ GITBUCKET_SSH_PORT=29418
 # use setUserID.sh
 GITBUCKET_USER_ID=9000
 
+# max file size for uploaded files in bytes
+GITBUCKET_MAX_FILE_SIZE=10485760
+
 
 ## database configuration
 # mysql root user password

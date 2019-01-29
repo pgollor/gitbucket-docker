@@ -14,6 +14,7 @@ EXPOSE 8080/tcp
 ENV GITBUCKET_HOST 0.0.0.0
 ENV GITBUCKET_PORT 8080
 ENV GITBUCKET_HOME /srv/gitbucket
+ENV GITBUCKET_MAX_FILE_SIZE=10485760
 
 # create home
 RUN mkdir -p $GITBUCKET_HOME
@@ -55,4 +56,4 @@ COPY database.conf ./
 RUN chmod +x /docker-entrypoint.sh
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD su-exec gitbucket java -jar $GITBUCKET_HOME/latest.war --host=$GITBUCKET_HOST --port=$GITBUCKET_PORT --gitbucket.home=$GITBUCKET_HOME
+CMD su-exec gitbucket java -jar $GITBUCKET_HOME/latest.war --host=$GITBUCKET_HOST --port=$GITBUCKET_PORT --gitbucket.home=$GITBUCKET_HOME --max_file_size=$GITBUCKET_MAX_FILE_SIZE"

@@ -2,7 +2,7 @@ version: '2.1'
 
 services:
     main-gitbucket:
-      image: pgollor/gitbucket:develop
+      image: pgollor/gitbucket:latest
       mem_limit: 2g
       restart: always
       depends_on:
@@ -14,6 +14,7 @@ services:
         - GITBUCKET_DATABASE_NAME=${GITBUCKET_DATABASE_NAME}
         - GITBUCKET_DATABASE_USER=${GITBUCKET_DATABASE_USER}
         - GITBUCKET_DATABASE_PASSWORD=${GITBUCKET_DATABASE_PASSWORD}
+        - GITBUCKET_MAX_FILE_SIZE=${GITBUCKET_MAX_FILE_SIZE:10485760}
         - TZ=${TZ}
       volumes:
         - ./data/repositories/:/srv/gitbucket/repositories/
