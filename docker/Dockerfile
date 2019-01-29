@@ -11,6 +11,7 @@ EXPOSE 29418/tcp
 EXPOSE 8080/tcp
 
 # environment variables
+ENV GITBUCKET_USER_ID 1000
 ENV GITBUCKET_HOST 0.0.0.0
 ENV GITBUCKET_PORT 8080
 ENV GITBUCKET_HOME /srv/gitbucket
@@ -56,4 +57,4 @@ COPY database.conf ./
 RUN chmod +x /docker-entrypoint.sh
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["su-exec" "gitbucket" "java -jar $GITBUCKET_HOME/latest.war --host=$GITBUCKET_HOST --port=$GITBUCKET_PORT --gitbucket.home=$GITBUCKET_HOME --max_file_size=$GITBUCKET_MAX_FILE_SIZE"]
+CMD su-exec gitbucket java -jar $GITBUCKET_HOME/latest.war --host=$GITBUCKET_HOST --port=$GITBUCKET_PORT --gitbucket.home=$GITBUCKET_HOME --max_file_size=$GITBUCKET_MAX_FILE_SIZE
