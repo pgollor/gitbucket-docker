@@ -1,8 +1,11 @@
 #!/bin/bash
 
 
+# get script dir path
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 # backup directory
-backupDir=./backup
+backupDir="${SCRIPT_DIR}/backup"
 
 # current date
 currentDate=$(date +"%Y-%m-%d_%H-%M-%S")
@@ -32,10 +35,16 @@ if [ -d "data/gist" ]; then
 fi
 
 
+# get compose project name to backup data from correct container
+source ${SCRIPT_DIR}/gitbucket.conf
+CMPS_PRJ=$(echo $COMPOSE_PROJECT_NAME | tr -cd "[A-Za-z-_]")
+echo "backup files from ${CMPS_PRJ} project"
+
+
 function backup() {
 
-	IDmain=$(docker ps -qf name=main-gitbucket)
-	IDdb=$(docker ps -qf name=mysql-gitbucket)
+	IDmain=$(docker ps -qf name=${CMPS_PRJ}_main-gitbucket)
+	IDdb=$(docker ps -qf name=${CMPS_PRJ}_mysql-gitbucket)
 
 	while (( "$#" )); do
 	case "$1" in
@@ -109,7 +118,7 @@ function restore() {
 		exit 1
 	fi
 
-	IDmain=$(docker ps -qf name=main-gitbucket)
+	IDmain=$(docker ps -qf name=${CMPS_PRJ}_main-gitbucket)
 
 	echo "restore ssh keys"
 	docker cp "${backupDir}/gitbucket.ser" ${IDmain}:/srv/gitbucket/gitbucket.ser
