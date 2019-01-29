@@ -56,4 +56,4 @@ COPY database.conf ./
 RUN chmod +x /docker-entrypoint.sh
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD su-exec gitbucket java -jar $GITBUCKET_HOME/latest.war --host=$GITBUCKET_HOST --port=$GITBUCKET_PORT --gitbucket.home=$GITBUCKET_HOME --max_file_size=$GITBUCKET_MAX_FILE_SIZE"
+CMD ["su-exec" "gitbucket" "java -jar $GITBUCKET_HOME/latest.war --host=$GITBUCKET_HOST --port=$GITBUCKET_PORT --gitbucket.home=$GITBUCKET_HOME --max_file_size=$GITBUCKET_MAX_FILE_SIZE"]
