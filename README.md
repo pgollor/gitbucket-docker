@@ -58,10 +58,6 @@ Default user and passwort are both root.
 
 ### Configuration
 Please use the configuration file `gitbucket.conf` for your personal changes.
-There are three configs for gitbucket:
-- `GITBUCKET_BIND`: ip address to bind to
-- `GITBUCKET_WEB_PORT`: web port to bind to
-- `GITBUCKET_SSH_PORT`: ssh port to bind to
 
 
 ### Update
@@ -130,6 +126,7 @@ If you want a full backup, please use `backup.sh` like:
 ```
 ./backup.sh backup all
 ```
+**Plese check if `COMPOSE_PROJECT_NAME` exists in your local `gitbucket.conf`!!!**
 
 #### Full Backup via `backup.sh`
 For backuping the mysql database and the repositories you could use the `backup.sh` script and combine it with a daily cronjob.
