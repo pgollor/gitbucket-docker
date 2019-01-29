@@ -35,3 +35,8 @@ GITBUCKET_DATABASE_PASSWORD=QzB3htEVYNV5aKd1RLFZi9LcSd2F
 
 # Timezone one of /usr/share/zoneinfo
 TZ=Europe/Berlin
+
+
+## compose project name
+# this have to be unique for more then one gitbucket instance per docker host
+COMPOSE_PROJECT_NAME=gitbucket
