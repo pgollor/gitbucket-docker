@@ -3,6 +3,7 @@ version: '2.1'
 services:
     main-gitbucket:
       image: pgollor/gitbucket:develop
+      build: ./docker/
       mem_limit: 2g
       restart: always
       depends_on:
