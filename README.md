@@ -5,7 +5,7 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/pgollor/gitbucket.svg)](https://hub.docker.com/r/pgollor/gitbucket/)
 [![](https://images.microbadger.com/badges/image/pgollor/gitbucket.svg)](https://microbadger.com/images/pgollor/gitbucket "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/pgollor/gitbucket.svg)](https://microbadger.com/images/pgollor/gitbucket "Get your own version badge on microbadger.com")
-![](https://img.shields.io/github/tag-date/gitbucket/gitbucket.svg?label=gitbucket%20latest)
+[![](https://img.shields.io/github/tag-date/gitbucket/gitbucket.svg?label=gitbucket%20latest)](https://github.com/gitbucket/gitbucket/releases/latest)
 
 This docker container of [gitbucket](https://github.com/gitbucket/gitbucket.git) is in beta state!
 
