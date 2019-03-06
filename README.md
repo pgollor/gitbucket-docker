@@ -126,7 +126,9 @@ If you want a full backup, please use `backup.sh` like:
 ```
 ./backup.sh backup all
 ```
-**Plese check if `COMPOSE_PROJECT_NAME` exists in your local `gitbucket.conf`!!!**
+
+- **Plese check if `COMPOSE_PROJECT_NAME` exists in your local `gitbucket.conf`!!!**
+- **You have to be install the pbzip2 package!** For debian systems: `apt-get install pbzip2`
 
 #### Full Backup via `backup.sh`
 For backuping the mysql database and the repositories you could use the `backup.sh` script and combine it with a daily cronjob.

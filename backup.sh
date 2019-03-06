@@ -61,8 +61,9 @@ function backup() {
 	repos|all)
 
 		echo "backup repositories"
-		repoFile="${backupDir}/repositories/${currentDate}.tbz2"
-		tar -cj data/repositories -f ${repoFile}
+		dstFile="${backupDir}/repositories/${currentDate}.tbz2"
+		#tar -cj data/repositories -f ${repoFile}
+		tar -I pbzip2 -c data/repositories -f ${dstFile}
 
 		# copy auto backup folder
 		if [ -d "data/backup" ]; then
@@ -80,8 +81,8 @@ function backup() {
 	
 		if [ -d "data/gist" ]; then
 			echo "backup gist directory"
-			repoFile="${backupDir}/gist/${currentDate}.tbz2"
-			tar -cj data/gist -f ${repoFile}
+			dstFile="${backupDir}/gist/${currentDate}.tbz2"
+			tar -cj data/gist -f ${dstFile}
 		fi
 
 	;;&
@@ -89,8 +90,8 @@ function backup() {
 
 		if [ -d "data/data" ]; then
 			echo "backup data directory"
-			repoFile="${backupDir}/data/${currentDate}.tbz2"
-			tar -cj data/data -f ${repoFile}
+			dstFile="${backupDir}/data/${currentDate}.tbz2"
+			tar -cj data/data -f ${dstFile}
 		fi
 
 	;;&
@@ -104,8 +105,8 @@ function backup() {
 	shift
 	done
 
-	# delete all files older 10 days
-	#find ${backupDir} -iname "*.tbz2" -type f -mtime +10 -exec rm {} \; > /dev/null
+	# delete all files older 30 days
+	find ${backupDir} -iname "*.tbz2" -type f -mtime +30 -exec rm -i {} \; > /dev/null
 }
 
 function restore() {
