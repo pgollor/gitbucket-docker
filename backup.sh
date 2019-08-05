@@ -21,6 +21,11 @@ if [[ ${1} == "backup" && ! ${2} =~ (db|repos|confs|gist|data|sshkeys|all) ]]; t
 	exit 1
 fi
 
+if [[ ${1} == "restore" && ! ${2} =~ (sshkeys|all) ]]; then
+	echo "Second parameter needs to be 'sshkeys'"
+	exit 1
+fi
+
 
 # create backup directories
 mkdir -p ${backupDir}
@@ -38,10 +43,10 @@ fi
 # get compose project name to backup data from correct container
 source ${SCRIPT_DIR}/gitbucket.conf
 CMPS_PRJ=$(echo $COMPOSE_PROJECT_NAME | tr -cd "[A-Za-z-_]")
-echo "backup files from ${CMPS_PRJ} project"
 
 
 function backup() {
+	echo "backup files from ${CMPS_PRJ} project"
 
 	IDmain=$(docker ps -qf name=${CMPS_PRJ}_main-gitbucket)
 	IDdb=$(docker ps -qf name=${CMPS_PRJ}_mysql-gitbucket)
@@ -110,6 +115,8 @@ function backup() {
 }
 
 function restore() {
+	echo "restore files from ${CMPS_PRJ} project"
+
 	while (( "$#" )); do
 	case "$1" in
 	sshkeys|all)
