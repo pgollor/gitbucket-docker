@@ -148,6 +148,10 @@ Please restart the gitbucket container with `docker-compose restart main-gitbuck
 After that it should be work.
 If doesn't please contact me via `issue@pgollor.de` because gitbucket does not allow issues for guests.
 
+### until commit 5b1fbf92174d914a4546910c7eb55f66527d859b
+
+You have to remove the gitbucket-network once, because this network is no longer port of the docker-compose file
+
 
 ## Contact and Contribution
 You can write me an email ( `kalle@pgollor.de` ) or you could register here as an user to contribute to this project.
