@@ -29,10 +29,8 @@ services:
       ports:
         - "${GITBUCKET_WEB_BIND:-127.0.0.1}:${GITBUCKET_WEB_PORT:-8080}:8080"
         - "${GITBUCKET_SSH_BIND:-127.0.0.1}:${GITBUCKET_SSH_PORT:-29418}:29418"
-      networks:
-        gitbucket-network:
-          aliases:
-            - gitbucket
+      links:
+        - mysql-gitbucket:database
 
     mysql-gitbucket:
       image: mariadb:10.3
@@ -52,17 +50,6 @@ services:
       volumes:
         - mysql-vol-1:/var/lib/mysql/
         - ./data/conf/mysql:/etc/mysql/conf.d/:ro
-      networks:
-        gitbucket-network:
-          aliases:
-            - database
-
-networks:
-  gitbucket-network:
-    driver: bridge
-    enable_ipv6: false
-    ipam:
-      driver: default
 
 volumes:
   mysql-vol-1:
