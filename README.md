@@ -86,7 +86,7 @@ docker-compose exec mysql-gitbucket sh -c 'exec mysql_upgrade -uroot -p"${MYSQL_
 
 2. Backup
 ```
-./backup.sh backup all
+./ backup_and_restore.sh backup all
 ```
 
 3. get the new image
@@ -101,14 +101,14 @@ docker-compose up -d --remove-orphans
 ```
 
 4. cleanup your docker environment
-This step is optional. Please do this only if you understand the next line.
+This step is optional. Please only do this if you understand the next line.
 ```
 docker rmi -f $(docker images -f "dangling=true" -q)
 ```
 
 5. restore ssh keys
 ```
-./backup.sh restore sshkeys
+./ backup_and_restore.sh restore sshkeys
 ```
 
 
