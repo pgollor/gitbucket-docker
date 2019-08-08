@@ -160,7 +160,6 @@ After register please fork this repository and create pull reqeusts with your ch
 
 ## TODO
 - restore for all backuped data
-- backupscript without sudo
 - check gitbucket.war hash after download
 - maybe a nginx container with ssl???
 
