@@ -1,4 +1,4 @@
-FROM anapsix/alpine-java:8
+FROM openjdk:8-jre-alpine
 LABEL maintainer "Pascal Gollor <pascal@pgollor.de>"
 
 ARG VCS_REF
