@@ -27,6 +27,7 @@ RUN echo http://ftp.halifax.rwth-aachen.de/alpine/latest-stable/main > /etc/apk/
 # setup
 RUN apk update
 RUN apk add ca-certificates wget su-exec git
+RUN update-ca-certificates
 
 # get gitbucket
 RUN wget https://github.com/gitbucket/gitbucket/releases/download/4.33.0/gitbucket.war -O $GITBUCKET_HOME/latest.war
