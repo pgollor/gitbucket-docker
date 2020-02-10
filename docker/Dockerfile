@@ -1,4 +1,4 @@
-FROM openjdk:8-jre-alpine
+FROM openjdk:14-alpine
 LABEL maintainer "Pascal Gollor <pascal@pgollor.de>"
 
 ARG VCS_REF
@@ -20,10 +20,6 @@ ENV GITBUCKET_MAX_FILE_SIZE=10485760
 # create home
 RUN mkdir -p $GITBUCKET_HOME
 
-# update mirror
-RUN echo http://ftp.halifax.rwth-aachen.de/alpine/latest-stable/main > /etc/apk/repositories; \
-	echo http://ftp.halifax.rwth-aachen.de/alpine/latest-stable/community >> /etc/apk/repositories
-
 # setup
 RUN apk update
 RUN apk add ca-certificates wget su-exec git
@@ -36,7 +32,7 @@ RUN wget https://github.com/gitbucket/gitbucket/releases/download/4.33.0/gitbuck
 RUN mkdir $GITBUCKET_HOME/plugins
 
 # get backup plugin
-RUN wget https://github.com/jyuch/gitbucket-backup-plugin/releases/download/1.2.1/gitbucket-backup-plugin-gitbucket_4.29.0-1.2.1.jar -O $GITBUCKET_HOME/gitbucket-backup-plugin-gitbucket_4.29.0-1.2.1.jar
+RUN wget https://github.com/jyuch/gitbucket-backup-plugin/releases/download/1.2.2/gitbucket-backup-plugin-1.2.2.jar -O $GITBUCKET_HOME/gitbucket-backup-plugin-1.2.2.jar
 
 # clean
 RUN apk del wget
