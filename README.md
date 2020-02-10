@@ -1,5 +1,3 @@
-# <span style="color:red">PLEASE DO NOT USE VERSION 4.33 AT THE MOMENT</span>
-
 # docker container for gitbucket
 
 [![Build Status](https://jenkins.pgollor.de/job/gitbucket-docker-master/badge/icon)](https://jenkins.pgollor.de/job/gitbucket-docker-master/)
