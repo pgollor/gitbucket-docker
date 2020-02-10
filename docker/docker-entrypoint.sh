@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 
 # check for exisitng user and create it if necessary
@@ -20,8 +20,8 @@ sed -i "s/GITBUCKET_DATABASE_PASSWORD/${GITBUCKET_DATABASE_PASSWORD}/" $dbfile
 sed -i "s/GITBUCKET_DATABASE_USER/${GITBUCKET_DATABASE_USER}/" $dbfile
 
 # download backup plugin if not present
-if [ ! -f "$GITBUCKET_HOME/plugins/gitbucket-backup-plugin-gitbucket_4.29.0-1.2.1.jar" ]; then
-	mv $GITBUCKET_HOME/gitbucket-backup-plugin-gitbucket_4.29.0-1.2.1.jar $GITBUCKET_HOME/plugins/gitbucket-backup-plugin-gitbucket_4.29.0-1.2.1.jar
+if [ ! -f "$GITBUCKET_HOME/plugins/gitbucket-backup-plugin-1.2.2.jar" ]; then
+	mv $GITBUCKET_HOME/gitbucket-backup-plugin-1.2.2.jar $GITBUCKET_HOME/plugins/gitbucket-backup-plugin-1.2.2.jar
 fi
 
 exec "$@"
