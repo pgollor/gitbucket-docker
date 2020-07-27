@@ -26,7 +26,7 @@ RUN apk add ca-certificates wget su-exec git
 RUN update-ca-certificates
 
 # get gitbucket
-RUN wget https://github.com/gitbucket/gitbucket/releases/download/4.33.0/gitbucket.war -O $GITBUCKET_HOME/latest.war
+RUN wget https://github.com/gitbucket/gitbucket/releases/download/4.34.0/gitbucket.war -O $GITBUCKET_HOME/latest.war
 
 # create plugin dir
 RUN mkdir $GITBUCKET_HOME/plugins
